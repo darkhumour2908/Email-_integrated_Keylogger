@@ -1,4 +1,4 @@
-# Email-Integrated Keylogger
+# Email Integrated Keylogger
 
 > **WARNING — Legal & Ethical:** This tool logs keystrokes and emails them. **Use only on devices you own or where you have explicit, written permission to monitor.** Unauthorized use is illegal and unethical. The author is not responsible for misuse.
 
