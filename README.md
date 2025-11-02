@@ -8,41 +8,60 @@
 
 An educational/administrative tool that records keystrokes with timestamps and, on command (pressing `ESC`), emails the log and deletes the local file. **Designed for lawful use only** (device owner testing, lab research, or explicit monitoring consent).
 
+---
+
 ## Features
 
-* Logs every keystroke with a timestamp.
-* Human-readable special key names: `[SPACE]`, `[ENTER]`, `[TAB]`, `[BACKSPACE]`, `[ESC]`, etc.
-* Press `ESC` to: send the current log as an email, securely delete the local log file, and stop the program.
-* No hardcoded passwords — supports secure credentials via environment variables or a `.gitignored` config file.
+- Logs every keystroke with a timestamp.
+- Human-readable special key names: `[SPACE]`, `[ENTER]`, `[TAB]`, `[BACKSPACE]`, `[ESC]`, etc.
+- Press `ESC` to: send the current log as an email, securely delete the local log file, and stop the program.
+- No hardcoded passwords — supports secure credentials via environment variables or a `.gitignored` config file.
+
+---
 
 ## Requirements
 
-* Python 3.8+.
-* Internet connection (to send email).
-* SMTP-capable email account (Gmail with App Password recommended).
+- Python 3.11 (recommended via [pyenv](https://github.com/pyenv/pyenv))
+- Internet connection (to send email)
+- SMTP-capable email account (Gmail with App Password recommended)
+
+---
 
 ## Installation
 
 ```bash
-# clone the repo
+# Clone the repository
 git clone https://github.com/yourusername/keylogger-project.git
 cd keylogger-project
 
-# create and activate a virtual environment (recommended)
-python3 -m venv venv
-source venv/bin/activate   # macOS / Linux
-# venv\Scripts\activate   # Windows (PowerShell)
+# (Optional) Fix ownership if files were created as root
+sudo chown -R $USER:$USER .
 
-# install dependencies
+# Install pyenv if you don’t have Python 3.11
+curl https://pyenv.run | bash
+
+# Add pyenv to your shell (bash example)
+echo 'export PATH="$HOME/.pyenv/bin:$PATH"' >> ~/.bashrc
+echo 'eval "$(pyenv init --path)"' >> ~/.bashrc
+echo 'eval "$(pyenv init -)"' >> ~/.bashrc
+exec $SHELL
+
+# Install Python 3.11
+MAKEFLAGS="-j2" pyenv install 3.11.12
+pyenv local 3.11.12
+
+# Create and activate virtual environment
+python -m venv venv3.11
+source venv3.11/bin/activate  # Linux / macOS
+# venv3.11\Scripts\activate    # Windows (PowerShell)
+
+# Install dependencies
+pip install --upgrade pip
 pip install -r requirements.txt
-```
 
-## Usage
+# (Optional) pin pynput to avoid issues
+pip install pynput==1.7.6
 
-```bash
+## Run
+bash
 python3 keylogger.py
-```
-
-
-
-
