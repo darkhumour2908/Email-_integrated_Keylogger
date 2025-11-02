@@ -15,7 +15,7 @@ An educational/administrative tool that records keystrokes with timestamps and, 
 - Logs every keystroke with a timestamp.
 - Human-readable special key names: `[SPACE]`, `[ENTER]`, `[TAB]`, `[BACKSPACE]`, `[ESC]`, etc.
 - Press `ESC` to: send the current log as an email, securely delete the local log file, and stop the program.
-- No hardcoded passwords — supports secure credentials via environment variables or a `.gitignored` config file.
+- No hardcoded passwords — supports secure credentials via environment variables or config file.
 
 ---
 
